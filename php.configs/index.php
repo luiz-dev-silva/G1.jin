@@ -1,5 +1,11 @@
 <?php 
-require 'news-api.php';
+
+require_once 'api/news-api.php';
+require_once 'api/key.php';
+
+$page = new API(KEY_API);
+
+$noticias = $page->ultimas_news();
 
 ?>
 
@@ -18,9 +24,9 @@ require 'news-api.php';
 
 <section class="container">
 	<?php 
-	if (count($news->articles)){
+	if (count($noticias->articles)){
 	$i = 0;
-	foreach ($news->articles as $Noticias) {
+	foreach ($noticias->articles as $Noticias) {
 	$i++;
 	?>
 
