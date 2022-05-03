@@ -1,113 +1,134 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['newUser'])) {
+	header('Location: /login.html');
+	session_destroy();
+}
+
+require_once 'php.configs/api/news-api.php';
+require_once 'php.configs/api/key.php';
+
+$page = new API(KEY_API);
+$noticias = $page->ultimas_news();
+
+
+?>
+
+
+
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navbar</title>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portal de Notícias</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">	
+	<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+		body {
+			color: black;
+			font-family: 'Lora', serif;
+		}
 
-  <body>
-    <header>
-      <nav>
-        <a class="logo" href="/">Copia do G1</a>
-        <div class="mobile-menu">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
-        <ul class="nav-list">
-          <li><a href="#esportes-categoria">Esportes</a></li>
-          <li><a href="#tecnologia-categoria">Técnologia</a></li>
-          <li><a href="#saude-categoria">Saúde</a></li>
-          <li><a href="#politica-categoria">Política</a></li>
-          <li><a href="login.html">Entrar</a></li>
-        </ul>
-      </nav>
-    </header>
-    
-     <section class="hero">
-      <div class="container">
-        <h1>Últimas Notícias</h1>
-        <div class="imgfc">
-          <figure class="foto-legenda">
-              <img src="imagens/rasas.webp" alt="">
-              <figcaption>
-                <h3>Putin diz que Ocidente quer 'cancelar' Rússia e cita autora de Harry Potter</h3>
-                <br>
-                <p>O presidente da Rússia, Vladimir Putin, afirmou hoje em discurso que o Ocidente está tentando "cancelar" o país termo usado na internet para um boicote de pessoas famosas ou anônimas por comportamento considerado inadequado. Ele citou uma "discriminação" contra a cultura russa nos países ocidentais e a comparou à queima de livros na Alemanha e Áustria por parte dos nazistas na década de 1930... <a href="https://noticias.uol.com.br/internacional/ultimas-noticias/2022/03/25/putin-diz-que-o-ocidente-quer-cancelar-a-russia.htm" target="_blank" rel="noopener noreferrer"> LER MAIS</a></p>
-              </figcaption>
-            </figure>
-          </div> 
+		h1 {
+			padding: 10px;
+			color: #CD3333;
+			text-indent: 40px;
+			text-align: justify;
+			font-size: 23pt;
+		}
 
-        <br>
-        <hr>
-        <div class="imgfc">
-          <h2 id="esportes-categoria">esportes</h2>
-          <figure class="foto-legenda">
-             
-              <img src="imagens/rasas.webp" alt="">
-              <figcaption>
-                <h3>Putin diz que Ocidente quer 'cancelar' Rússia e cita autora de Harry Potter</h3>
-                <br>
-                <p>O presidente da Rússia, Vladimir Putin, afirmou hoje em discurso que o Ocidente está tentando "cancelar" o país termo usado na internet para um boicote de pessoas famosas ou anônimas por comportamento considerado inadequado. Ele citou uma "discriminação" contra a cultura russa nos países ocidentais e a comparou à queima de livros na Alemanha e Áustria por parte dos nazistas na década de 1930... <a href="https://noticias.uol.com.br/internacional/ultimas-noticias/2022/03/25/putin-diz-que-o-ocidente-quer-cancelar-a-russia.htm" target="_blank" rel="noopener noreferrer"> LER MAIS</a></p>
-              </figcaption>
-            </figure>
-          </div> 
-        <br>
-        <hr>
-    
-        <h2 id="tecnologia-categoria">Técnologia</h2>
-        <div class="imgfc">
-          <figure class="foto-legenda">
-              <img src="imagens/rasas.webp" alt="">
-              <figcaption>
-                <h3>Putin diz que Ocidente quer 'cancelar' Rússia e cita autora de Harry Potter</h3>
-                <br>
-                <p>O presidente da Rússia, Vladimir Putin, afirmou hoje em discurso que o Ocidente está tentando "cancelar" o país termo usado na internet para um boicote de pessoas famosas ou anônimas por comportamento considerado inadequado. Ele citou uma "discriminação" contra a cultura russa nos países ocidentais e a comparou à queima de livros na Alemanha e Áustria por parte dos nazistas na década de 1930... <a href="https://noticias.uol.com.br/internacional/ultimas-noticias/2022/03/25/putin-diz-que-o-ocidente-quer-cancelar-a-russia.htm" target="_blank" rel="noopener noreferrer"> LER MAIS</a></p>
-              </figcaption>
-            </figure>
-          </div> 
-        <br>
-        <hr>
-        <h2 id="saude-categoria">Saúde</h2>
-        <div class="imgfc">
-          <figure class="foto-legenda">
-              <img src="imagens/rasas.webp" alt="">
-              <figcaption>
-                <h3>Putin diz que Ocidente quer 'cancelar' Rússia e cita autora de Harry Potter</h3>
-                <br>
-                <p>O presidente da Rússia, Vladimir Putin, afirmou hoje em discurso que o Ocidente está tentando "cancelar" o país termo usado na internet para um boicote de pessoas famosas ou anônimas por comportamento considerado inadequado. Ele citou uma "discriminação" contra a cultura russa nos países ocidentais e a comparou à queima de livros na Alemanha e Áustria por parte dos nazistas na década de 1930... <a href="https://noticias.uol.com.br/internacional/ultimas-noticias/2022/03/25/putin-diz-que-o-ocidente-quer-cancelar-a-russia.htm" target="_blank" rel="noopener noreferrer"> LER MAIS</a></p>
-              </figcaption>
-            </figure>
-          </div> 
-        <br>
-        <hr>
-        <h2 id="politica-categoria">Política</h2>
-        <div class="imgfc">
-          <figure class="foto-legenda">
-              <img src="imagens/rasas.webp" alt="">
-              <figcaption>
-                <h3>Putin diz que Ocidente quer 'cancelar' Rússia e cita autora de Harry Potter</h3>
-                <br>
-                <p>O presidente da Rússia, Vladimir Putin, afirmou hoje em discurso que o Ocidente está tentando "cancelar" o país termo usado na internet para um boicote de pessoas famosas ou anônimas por comportamento considerado inadequado. Ele citou uma "discriminação" contra a cultura russa nos países ocidentais e a comparou à queima de livros na Alemanha e Áustria por parte dos nazistas na década de 1930... <a href="https://noticias.uol.com.br/internacional/ultimas-noticias/2022/03/25/putin-diz-que-o-ocidente-quer-cancelar-a-russia.htm" target="_blank" rel="noopener noreferrer"> LER MAIS</a></p>
-              </figcaption>
-            </figure>
-          </div> 
-          <div class="bloco">
-            <img src="imagens/rasas.webp" alt="">
-            <img src="imagens/rasas.webp" alt="">
-          </div>
+		p{
+			padding: 10px;
+  			border-bottom: solid 1px #606060;
+			font-size: 15pt;
+			text-indent: 40px;
+			text-align: justify;
+		}
 
-      </div>
-     </section>
-  
+		div.conteudo {
+			display: block;
+			width: 900px;
+			background-color: #fff;
+			margin: -10px auto 0px auto;
+			box-shadow: 10px 10px 5px #606060;
+			padding: 50px;
+		}
+
+		div.container {
+			padding: 25px;
+		}
+
+		div.container img {
+			margin-left: 90px;
+		}
+		
+		footer.rodape{
+			padding: 15px;
+			clear: both;
+		}
+
+		footer.rodape a{
+			text-decoration: none;
+			color: #606060;
+		}
+
+		footer.rodape p {
+			text-align: center;
+			color: #606060;
+		}
+		
+	</style>	
+</head>
+<body>
+		<nav>
+    		<a class="logo" href="index.php">G2.jin</a>
+    		<div class="mobile-menu">
+        		<div class="line1"></div>
+    			<div class="line2"></div>
+        		<div class="line3"></div>
+    		</div>
+    		<ul class="nav-list">
+        		<li><a href="index.php">Início</a></li>
+        		<li><a href="sobre.html">Sobre</a></li>
+        		<li><a href="devs.html">Devs</a></li>
+        		<li><a href="login.html">Cadastra-se</a></li>
+    		</ul>
+		</nav>
     <script src="js/mobile-navbar.js"></script>
-    <footer>
-      <div id="rodape">
-        <p>Copyright &copy; - by Luiz Guilherme <br> <a href="https://www.instagram.com/luizguilherme.exe/" target="_blank"> Instagram</a> </p>
-      </div>
-    </footer>
-  </body>
+    <div class="conteudo">
+		<section>
+			<div class="container">
+ 
+				<?php 
+				if (count($noticias->articles)){
+				$i = 0;
+				foreach ($noticias->articles as $Noticias) {
+				$i++;
+				?>
+
+				<h1><?=$Noticias->title?></h1>
+
+
+				<img src="<?=$Noticias->urlToImage?>" vertical-align="middle"  height="325vh" width="650vh" >
+
+				<br>
+
+				<p ><?=$Noticias->description?></p> 
+
+
+				<br>
+
+				<?php 
+				}
+				}
+				?>
+			</div>
+		</section>
+	</div>
+	<footer class="rodape">
+		<p>Copyright &copy; 2022 - by <a href="https://www.instagram.com/luizguilherme.exe/" target="blank">Papatinho, </a><a href="https://www.instagram.com/a32fred/" target="blank"> A.32,</a> <a href="https://www.instagram.com/mikebelchiol/" target="blank"> Mike Belchiol. </a></p>
+	</footer>
+</body>
 </html>

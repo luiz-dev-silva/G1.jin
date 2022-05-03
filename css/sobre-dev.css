@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+
+body {
+  color: black;
+  background: linear-gradient(#808080, #A9A9A9, #D3D3D3);
+  font-family: 'Lora', serif;
+}
+
+section.hero h2 {
+  font-size: 25pt;
+}
+
+section.hero h3 {
+  font-size: 20pt;
+}
+
+section.hero h2, h3 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+section.hero ul, li{
+  font-size: 15pt;
+  margin-top: 10px;
+  text-align: center;
+  list-style: none;
+}
+
+div.corpo section {
+  display: block;
+  width: 900px;
+  height: 543px;
+  background-color: #fff;
+  margin: -10px auto 0px auto;
+  box-shadow: 10px 10px 5px #606060;
+  padding: 50px;
+}
+
+div.corpo p {
+  justify-content: center;
+  text-indent: 40px;
+  text-align: justify;
+  font-size: 23pt;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  opacity: 0.7;
+  letter-spacing: 5px;
+}
+
+.logo {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #C4170C;
+  height: 8vh;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-list li {
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background: #fff;
+  margin: 8px;
+  transition: 0.3s;
+}
+
+@media (max-width: 999px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav-list {
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 50vw;
+    height: 92vh;
+    background: #630101;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+  }
+  .nav-list li {
+    margin-left: 0;
+    opacity: 0;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
+
+.nav-list.active {
+  transform: translateX(0);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-menu.active .line1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+  opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
+
+footer.rodape {
+  padding: 15px;
+  clear: both;
+}
+
+footer.rodape a {
+  text-decoration: none;
+  color: #606060;
+}
+
+footer.rodape p {
+  text-align: center;
+  color: #606060;
+}
