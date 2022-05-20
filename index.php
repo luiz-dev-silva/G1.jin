@@ -21,14 +21,15 @@ $noticias = $page->ultimas_news();
 <html>
 <head>
 	<meta charset="utf-8">
+	<link rel="icon" href="img/g2.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Portal de Notícias</title>
+	<title>G2</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">	
 	<style type="text/css">
 	@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
 		body {
 			color: black;
-			font-family: 'Lora', serif;
+			font-family:  Arial, Helvetica, sans-serif;
 		}
 
 		h1 {
@@ -92,8 +93,7 @@ $noticias = $page->ultimas_news();
     		<ul class="nav-list">
         		<li><a href="index.php">Início</a></li>
         		<li><a href="sobre.html">Sobre</a></li>
-        		<li><a href="devs.html">Devs</a></li>
-        		<li><a href="login.html">Cadastra-se</a></li>
+        		<li><a href="/php.configs/logout.php">Logout</a></li>
     		</ul>
 		</nav>
     <script src="js/mobile-navbar.js"></script>
@@ -110,7 +110,7 @@ $noticias = $page->ultimas_news();
 
 				<h1><?=$Noticias->title?></h1>
 
-
+/
 				<img src="<?=$Noticias->urlToImage?>" vertical-align="middle"  height="325vh" width="650vh" >
 
 				<br>

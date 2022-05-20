@@ -11,6 +11,7 @@ $login->query("SELECT email, senha FROM usuario WHERE email = '$email' AND senha
 
 if($login->linha() > 0){
 
+	$_SESSION['newUser'] = $senha;
 	header('Location: /index.php');
 
 }else{
